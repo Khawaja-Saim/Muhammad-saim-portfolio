@@ -1,24 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { Layers, Sparkles } from 'lucide-react';
 
 export const Skills: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-
-  const allSkills = portfolioData.skillCategories.flatMap((cat) => cat.skills);
-
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-[#f5f5f5]">
+    <section id="skills" className="py-24 relative overflow-hidden bg-[#08090D]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="section-label">
             <span>✦ Technical Mastery</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black font-heading text-gray-900 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black font-heading text-white leading-tight">
             Specialized in Modern <span className="gradient-text">Flutter Engineering</span>
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-slate-400 text-base md:text-lg">
             A comprehensive overview of my core technical stack, libraries, cloud backends, and deployment proficiencies.
           </p>
         </div>
@@ -28,13 +24,13 @@ export const Skills: React.FC = () => {
           {portfolioData.skillCategories.map((cat, idx) => (
             <div
               key={idx}
-              className="glass-card p-8 border border-white hoverable group"
+              className="glass-card p-8 border border-white/10 hoverable group"
             >
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-                <div className="w-10 h-10 rounded-xl bg-[#ff6b35]/10 text-[#ff6b35] flex items-center justify-center font-bold">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                <div className="w-10 h-10 rounded-xl bg-[#00F5A0]/10 text-[#00F5A0] flex items-center justify-center font-bold">
                   <Layers className="w-5 h-5" />
                 </div>
-                <h3 className="font-heading font-bold text-xl text-gray-900 group-hover:text-[#ff6b35] transition-colors">
+                <h3 className="font-heading font-bold text-xl text-white group-hover:text-[#00F5A0] transition-colors">
                   {cat.category}
                 </h3>
               </div>
@@ -42,14 +38,14 @@ export const Skills: React.FC = () => {
               <div className="space-y-4">
                 {cat.skills.map((skill, sIdx) => (
                   <div key={sIdx} className="space-y-1.5">
-                    <div className="flex items-center justify-between text-sm font-semibold text-gray-800">
+                    <div className="flex items-center justify-between text-sm font-semibold text-slate-200">
                       <span>{skill.name}</span>
-                      <span className="text-xs font-bold text-[#ff6b35]">{skill.level}%</span>
+                      <span className="text-xs font-bold text-[#00F5A0]">{skill.level}%</span>
                     </div>
                     {/* Animated Progress Bar */}
-                    <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden border border-white/5">
                       <div
-                        className="h-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c5a] rounded-full transition-all duration-1000 ease-out"
+                        className="h-full bg-gradient-to-r from-[#00F5A0] to-[#00D9F5] rounded-full transition-all duration-700 ease-out"
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
@@ -61,9 +57,9 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Interactive Skills Cloud */}
-        <div className="mt-14 glass-card p-8 text-center max-w-4xl mx-auto border border-white">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 flex items-center justify-center gap-2">
-            <Sparkles className="w-4 h-4 text-[#ff6b35]" /> Complete Skills Matrix & Tools
+        <div className="mt-14 glass-card p-8 text-center max-w-4xl mx-auto border border-white/10">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#00F5A0]" /> Complete Skills Matrix & Tools
           </h4>
           <div className="flex flex-wrap items-center justify-center gap-2.5">
             {[
@@ -76,7 +72,7 @@ export const Skills: React.FC = () => {
             ].map((skill, i) => (
               <span
                 key={i}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-gray-800 shadow-sm border border-gray-200/80 hover:border-[#ff6b35] hover:text-[#ff6b35] transition-all hover:scale-105 hoverable cursor-default"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-[#131826] text-slate-300 shadow-sm border border-white/10 hover:border-[#00F5A0] hover:text-[#00F5A0] transition-all hover:scale-105 hoverable cursor-default"
               >
                 {skill}
               </span>

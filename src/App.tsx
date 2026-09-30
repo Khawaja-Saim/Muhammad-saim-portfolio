@@ -23,10 +23,10 @@ export function App() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Smooth intro loader
+    // Snappy, ultra-fast intro loader (only 600ms so it feels instant & responsive)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1800);
+    }, 600);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -36,36 +36,36 @@ export function App() {
 
   return (
     <>
-      {/* Intro Experience Loader (Exact same concentric rings & glowing initials) */}
+      {/* Intro Experience Loader (Snappy dark futuristic glow) */}
       <div
-        className={`fixed inset-0 z-[10000] bg-[#0c0c0c] flex items-center justify-center transition-all duration-700 ${
+        className={`fixed inset-0 z-[10000] bg-[#08090D] flex items-center justify-center transition-all duration-300 ${
           loading ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
         <div className="text-center">
-          <div className="relative w-24 h-24 mx-auto mb-6">
-            <div className="absolute inset-0 border-4 border-[#ff6b35]/20 rounded-full animate-ping" />
-            <div className="absolute inset-2 border-4 border-[#ff6b35]/40 rounded-full animate-pulse" />
+          <div className="relative w-20 h-20 mx-auto mb-5">
+            <div className="absolute inset-0 border-4 border-[#00F5A0]/20 rounded-full animate-ping" />
+            <div className="absolute inset-2 border-4 border-[#00D9F5]/40 rounded-full animate-pulse" />
             <div
-              className="absolute inset-4 border-4 border-[#ff6b35]/60 rounded-full animate-spin"
-              style={{ animationDuration: '2s' }}
+              className="absolute inset-3 border-4 border-[#00F5A0]/80 rounded-full animate-spin"
+              style={{ animationDuration: '1.2s' }}
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-3xl font-black font-heading text-[#ff6b35] tracking-wider">
+              <span className="text-2xl font-black font-heading text-[#00F5A0] tracking-wider shadow-[0_0_15px_#00F5A0]">
                 {portfolioData.personal.initials}
               </span>
             </div>
           </div>
-          <p className="text-white font-semibold text-sm tracking-widest uppercase animate-pulse">
+          <p className="text-slate-300 font-bold text-xs tracking-widest uppercase animate-pulse">
             Loading Experience...
           </p>
         </div>
       </div>
 
-      {/* Interactive Custom Cursor */}
+      {/* Interactive Custom Cursor (Works on Desktop & Mobile/Touch) */}
       <CustomCursor />
 
-      {/* Canvas Particle Trail */}
+      {/* Canvas Particle Trail (Snappy 120 FPS performance) */}
       <ParticleTrail />
 
       {/* Dual Scroll Progress Indicator */}
@@ -73,7 +73,7 @@ export function App() {
 
       {/* Main Portfolio Content */}
       <div
-        className={`min-h-screen bg-[#f5f5f5] transition-opacity duration-700 ${
+        className={`min-h-screen bg-[#08090D] text-slate-100 transition-opacity duration-300 ${
           loading ? 'opacity-0' : 'opacity-100'
         }`}
       >

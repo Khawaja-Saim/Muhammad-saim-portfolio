@@ -14,7 +14,6 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
-    // WhatsApp auto-redirect with prefilled text
     const text = encodeURIComponent(
       `Hello Saim, I visited your portfolio!\nMy Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\nMessage: ${formData.message}`
     );
@@ -22,9 +21,9 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#f5f5f5]">
-      {/* Background Orbs */}
-      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#ff6b35]/15 rounded-full blur-[140px] pointer-events-none" />
+    <section id="contact" className="py-24 relative overflow-hidden bg-[#08090D]">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#00F5A0]/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
@@ -32,10 +31,10 @@ export const ContactSection: React.FC = () => {
           <div className="section-label">
             <span>✦ Let's Connect</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black font-heading text-gray-900 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-black font-heading text-white leading-tight">
             Ready to Build Your <span className="gradient-text">Next Big App?</span>
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-slate-400 text-base md:text-lg">
             Have a project in mind or looking for a Senior Flutter Developer to join your team? Let's connect directly!
           </p>
         </div>
@@ -48,20 +47,20 @@ export const ContactSection: React.FC = () => {
               href={portfolioData.personal.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-7 rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white shadow-xl shadow-emerald-500/20 hover:scale-[1.02] transition-all hoverable group relative overflow-hidden"
+              className="block p-7 rounded-3xl bg-gradient-to-br from-emerald-600 to-teal-800 text-white shadow-xl shadow-emerald-500/10 hover:scale-[1.02] transition-all hoverable group relative overflow-hidden border border-emerald-400/20"
             >
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">
                   <MessageCircle className="w-7 h-7" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-100">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-200">
                     Fastest Response (Instant)
                   </span>
                   <h3 className="text-2xl font-bold font-heading">
                     Chat on WhatsApp
                   </h3>
-                  <p className="text-xs text-emerald-100 mt-1">
+                  <p className="text-xs text-emerald-200 mt-1">
                     {portfolioData.personal.phone} • Usually replies in minutes
                   </p>
                 </div>
@@ -69,48 +68,48 @@ export const ContactSection: React.FC = () => {
             </a>
 
             {/* Email & Phone Cards */}
-            <div className="glass-card p-6 border border-white space-y-5">
+            <div className="glass-card p-6 border border-white/10 space-y-5">
               <a
                 href={`mailto:${portfolioData.personal.email}`}
                 className="flex items-center gap-4 group hoverable"
               >
-                <div className="w-12 h-12 rounded-2xl bg-[#ff6b35]/10 text-[#ff6b35] flex items-center justify-center group-hover:bg-[#ff6b35] group-hover:text-white transition-all shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-[#00F5A0]/10 text-[#00F5A0] flex items-center justify-center group-hover:bg-[#00F5A0] group-hover:text-[#08090D] transition-all shadow-sm border border-[#00F5A0]/20">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Direct Email</span>
-                  <div className="text-base font-bold text-gray-900 group-hover:text-[#ff6b35] transition-colors">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Direct Email</span>
+                  <div className="text-base font-bold text-white group-hover:text-[#00F5A0] transition-colors">
                     {portfolioData.personal.email}
                   </div>
                 </div>
               </a>
 
-              <div className="h-px bg-gray-100" />
+              <div className="h-px bg-white/10" />
 
               <a
                 href={`tel:${portfolioData.personal.phone}`}
                 className="flex items-center gap-4 group hoverable"
               >
-                <div className="w-12 h-12 rounded-2xl bg-[#ff6b35]/10 text-[#ff6b35] flex items-center justify-center group-hover:bg-[#ff6b35] group-hover:text-white transition-all shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-[#00D9F5]/10 text-[#00D9F5] flex items-center justify-center group-hover:bg-[#00D9F5] group-hover:text-[#08090D] transition-all shadow-sm border border-[#00D9F5]/20">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Phone / Call</span>
-                  <div className="text-base font-bold text-gray-900 group-hover:text-[#ff6b35] transition-colors">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Phone / Call</span>
+                  <div className="text-base font-bold text-white group-hover:text-[#00D9F5] transition-colors">
                     {portfolioData.personal.phone}
                   </div>
                 </div>
               </a>
 
-              <div className="h-px bg-gray-100" />
+              <div className="h-px bg-white/10" />
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-gray-100 text-gray-600 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 text-slate-300 flex items-center justify-center border border-white/10">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Location</span>
-                  <div className="text-base font-bold text-gray-800">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Location</span>
+                  <div className="text-base font-bold text-slate-200">
                     {portfolioData.personal.location}
                   </div>
                 </div>
@@ -123,7 +122,7 @@ export const ContactSection: React.FC = () => {
                 href={portfolioData.personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 glass-card p-4 flex items-center justify-center gap-2 font-bold text-sm text-gray-800 hover:text-blue-600 hover:border-blue-400 transition-all hoverable"
+                className="flex-1 glass-card p-4 flex items-center justify-center gap-2 font-bold text-xs text-slate-200 hover:text-[#00D9F5] hover:border-[#00D9F5]/40 transition-all hoverable"
               >
                 <Linkedin className="w-4 h-4" />
                 <span>LinkedIn</span>
@@ -132,7 +131,7 @@ export const ContactSection: React.FC = () => {
                 href={portfolioData.personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 glass-card p-4 flex items-center justify-center gap-2 font-bold text-sm text-gray-800 hover:text-gray-950 hover:border-gray-900 transition-all hoverable"
+                className="flex-1 glass-card p-4 flex items-center justify-center gap-2 font-bold text-xs text-slate-200 hover:text-white hover:border-white/30 transition-all hoverable"
               >
                 <Github className="w-4 h-4" />
                 <span>GitHub</span>
@@ -141,7 +140,7 @@ export const ContactSection: React.FC = () => {
                 href={portfolioData.personal.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 glass-card p-4 flex items-center justify-center gap-2 font-bold text-sm text-[#ff6b35] hover:border-[#ff6b35] transition-all hoverable"
+                className="flex-1 glass-card p-4 flex items-center justify-center gap-2 font-bold text-xs text-[#00F5A0] hover:border-[#00F5A0]/40 transition-all hoverable"
               >
                 <FileText className="w-4 h-4" />
                 <span>CV Link</span>
@@ -151,21 +150,21 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column: Interactive Contact Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card p-8 md:p-10 border border-white">
-              <h3 className="text-2xl font-bold font-heading text-gray-900 mb-2">
+            <div className="glass-card p-8 md:p-10 border border-white/10">
+              <h3 className="text-2xl font-bold font-heading text-white mb-2">
                 Send a Message
               </h3>
-              <p className="text-sm text-gray-500 mb-6">
+              <p className="text-sm text-slate-400 mb-6">
                 Fill in the details below. This will seamlessly open WhatsApp to start our conversation!
               </p>
 
               {formSubmitted ? (
-                <div className="p-8 text-center bg-emerald-50 rounded-2xl border border-emerald-200 space-y-3">
-                  <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto" />
-                  <h4 className="text-xl font-bold text-emerald-900 font-heading">
+                <div className="p-8 text-center bg-emerald-500/10 rounded-2xl border border-emerald-500/30 space-y-3">
+                  <CheckCircle2 className="w-12 h-12 text-[#00F5A0] mx-auto" />
+                  <h4 className="text-xl font-bold text-white font-heading">
                     Opening WhatsApp...
                   </h4>
-                  <p className="text-sm text-emerald-700">
+                  <p className="text-sm text-emerald-300">
                     Your message has been formatted. If WhatsApp did not open automatically, click the WhatsApp button on the left!
                   </p>
                 </div>
@@ -173,7 +172,7 @@ export const ContactSection: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                         Your Name *
                       </label>
                       <input
@@ -182,11 +181,11 @@ export const ContactSection: React.FC = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:border-[#ff6b35] transition-colors"
+                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#0c0e17] text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#00F5A0] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                         Your Email *
                       </label>
                       <input
@@ -195,30 +194,30 @@ export const ContactSection: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@example.com"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:border-[#ff6b35] transition-colors"
+                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#0c0e17] text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#00F5A0] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                       Project Requirement
                     </label>
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:border-[#ff6b35] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#0c0e17] text-white text-sm focus:outline-none focus:border-[#00F5A0] transition-colors"
                     >
-                      <option>Mobile App (iOS & Android)</option>
-                      <option>Figma to Flutter Conversion</option>
-                      <option>App Performance Optimization</option>
-                      <option>Full-Time / Contract Hiring</option>
-                      <option>AI / Backend API Integration</option>
+                      <option className="bg-[#0c0e17] text-white">Mobile App (iOS & Android)</option>
+                      <option className="bg-[#0c0e17] text-white">Figma to Flutter Conversion</option>
+                      <option className="bg-[#0c0e17] text-white">App Performance Optimization</option>
+                      <option className="bg-[#0c0e17] text-white">Full-Time / Contract Hiring</option>
+                      <option className="bg-[#0c0e17] text-white">AI / Backend API Integration</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
                       Project Message *
                     </label>
                     <textarea
@@ -227,7 +226,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell me about your app goals, timeline, and features..."
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:border-[#ff6b35] transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-white/10 bg-[#0c0e17] text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#00F5A0] transition-colors resize-none"
                     />
                   </div>
 

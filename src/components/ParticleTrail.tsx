@@ -16,9 +16,9 @@ export const ParticleTrail: React.FC = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || window.matchMedia('(pointer: coarse)').matches) return;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     const handleResize = () => {
@@ -28,23 +28,34 @@ export const ParticleTrail: React.FC = () => {
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    const colors = ['#ff6b35', '#ff8c5a', '#f7c59f', '#ffa07a', '#e55a2b'];
+    const colors = ['#00F5A0', '#00D9F5', '#00B4D8', '#6366F1', '#38BDF8'];
 
-    const handleMouseMove = (e: MouseEvent) => {
-      for (let i = 0; i < 3; i++) {
+    const spawnParticles = (x: number, y: number, count = 2) => {
+      for (let i = 0; i < count; i++) {
         particlesRef.current.push({
-          x: e.clientX + (Math.random() - 0.5) * 8,
-          y: e.clientY + (Math.random() - 0.5) * 8,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
+          x: x + (Math.random() - 0.5) * 6,
+          y: y + (Math.random() - 0.5) * 6,
+          vx: (Math.random() - 0.5) * 1.8,
+          vy: (Math.random() - 0.5) * 1.8,
           life: 1.0,
-          size: Math.random() * 3.5 + 1.5,
+          size: Math.random() * 2.8 + 1.2,
           color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      spawnParticles(e.clientX, e.clientY, 2);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        spawnParticles(e.touches[0].clientX, e.touches[0].clientY, 2);
+      }
+    };
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     let animId: number;
     const render = () => {
@@ -53,8 +64,8 @@ export const ParticleTrail: React.FC = () => {
       particlesRef.current = particlesRef.current.filter((p) => {
         p.x += p.vx;
         p.y += p.vy;
-        p.life -= 0.025;
-        p.size *= 0.97;
+        p.life -= 0.035; // Snappier decay for top performance
+        p.size *= 0.96;
 
         if (p.life <= 0 || p.size <= 0.2) return false;
 
@@ -62,16 +73,13 @@ export const ParticleTrail: React.FC = () => {
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
         ctx.globalAlpha = Math.max(0, p.life);
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = p.color;
         ctx.fill();
         ctx.globalAlpha = 1;
-        ctx.shadowBlur = 0;
         return true;
       });
 
-      if (particlesRef.current.length > 120) {
-        particlesRef.current = particlesRef.current.slice(-120);
+      if (particlesRef.current.length > 60) {
+        particlesRef.current = particlesRef.current.slice(-60);
       }
 
       animId = requestAnimationFrame(render);
@@ -82,18 +90,15 @@ export const ParticleTrail: React.FC = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
       cancelAnimationFrame(animId);
     };
   }, []);
 
-  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
-    return null;
-  }
-
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[9998] hidden md:block"
+      className="fixed inset-0 pointer-events-none z-[9998]"
     />
   );
 };

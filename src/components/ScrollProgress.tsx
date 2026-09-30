@@ -32,7 +32,7 @@ export const ScrollProgress: React.FC = () => {
       {/* Top Gradient Progress Bar */}
       <div className="fixed top-0 left-0 right-0 h-1 z-[100] bg-transparent">
         <div
-          className="h-full bg-gradient-to-r from-[#ff6b35] via-[#ff8c5a] to-[#f7c59f] transition-all duration-100 ease-out"
+          className="h-full bg-gradient-to-r from-[#00F5A0] via-[#00D9F5] to-[#6366F1] transition-all duration-100 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -45,14 +45,14 @@ export const ScrollProgress: React.FC = () => {
         }`}
         title="Scroll to top"
       >
-        <div className="relative w-14 h-14 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-white/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+        <div className="relative w-14 h-14 bg-[#131826]/90 backdrop-blur-md rounded-full shadow-2xl border border-white/10 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:border-[#00F5A0]/50">
           <svg className="w-full h-full -rotate-90 p-1" viewBox="0 0 56 56">
             <circle
               cx="28"
               cy="28"
               r={radius}
               fill="none"
-              stroke="#e5e5e5"
+              stroke="rgba(255,255,255,0.1)"
               strokeWidth="3.5"
             />
             <circle
@@ -60,7 +60,7 @@ export const ScrollProgress: React.FC = () => {
               cy="28"
               r={radius}
               fill="none"
-              stroke="#ff6b35"
+              stroke="#00F5A0"
               strokeWidth="3.5"
               strokeLinecap="round"
               strokeDasharray={circumference}
@@ -69,10 +69,10 @@ export const ScrollProgress: React.FC = () => {
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-xs font-bold text-[#ff6b35] group-hover:hidden">
+            <span className="text-xs font-black text-[#00F5A0] group-hover:hidden">
               {Math.round(scrollProgress)}%
             </span>
-            <span className="text-xs font-bold text-[#ff6b35] hidden group-hover:block text-[14px]">
+            <span className="text-xs font-black text-[#00D9F5] hidden group-hover:block text-[14px]">
               ↑
             </span>
           </div>
