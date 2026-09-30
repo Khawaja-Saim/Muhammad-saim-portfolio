@@ -36,7 +36,7 @@ export const portfolioData = {
   personal: {
     name: 'Muhammad Saim',
     fullName: 'Muhammad Saim (Muhammad Saim)',
-    initials: 'KS',
+    initials: 'MS',
     title: 'Senior Flutter Developer',
     subtitle: 'Mobile App Architect & Cross-Platform Engineer',
     bio: 'Turning ambitious ideas into smooth, production-ready mobile applications. Specialized in clean architecture, performance optimization, and AI integrations. Building beautifully responsive, native-grade experiences for Android, iOS, and Web.',
