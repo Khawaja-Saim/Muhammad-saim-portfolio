@@ -6,7 +6,7 @@ import { ArrowRight, Download, MessageCircle, Sparkles, CheckCircle2 } from 'luc
 
 export const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center bg-[#08090D]">
+    <section id="home" className="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center bg-transparent">
       {/* Background Ambient Cyber Glow Orbs */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#00F5A0]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-[480px] h-[480px] bg-[#00D9F5]/10 rounded-full blur-[160px] pointer-events-none" />
