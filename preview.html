@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khawaja Saim | Senior Flutter Developer & Mobile App Architect</title>
+  
+  <!-- Meta Tags -->
+  <meta name="description" content="Khawaja Saim - Senior Flutter Developer with 3+ years experience building scalable mobile apps. 30+ apps built, 5+ live on stores.">
+  <meta name="keywords" content="Khawaja Saim, Flutter Developer, Dart, Firebase, iOS, Android, Mobile App Architect">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#ff6b35', hover: '#e55a2b' },
+            secondary: '#f7c59f',
+            dark: '#0c0c0c',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --color-primary: #ff6b35;
+      --color-secondary: #f7c59f;
+      --color-dark: #0c0c0c;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f5f5;
+      color: #222222;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #ff6b35; border-radius: 4px; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #ff6b35, #ff8c5a);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 15px rgba(255, 107, 53, 0.4); }
+      50% { box-shadow: 0 0 25px rgba(255, 107, 53, 0.8); }
+    }
+    .btn-primary {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 9999px;
+      padding: 0.9rem 2rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff6b35, #ff8c5a);
+      box-shadow: 0 4px 18px rgba(255, 107, 53, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-primary:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-primary:hover:before { left: 100%; }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+    }
+    .btn-secondary {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 9999px;
+      border: 2px solid #ff6b35;
+      padding: 0.85rem 1.9rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #ff6b35;
+      background: transparent;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-secondary:hover {
+      background: #ff6b35;
+      color: #ffffff;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 22px rgba(255, 107, 53, 0.35);
+    }
+    .glass-card {
+      border-radius: 1.25rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba(255, 107, 53, 0.3);
+    }
+    .glass-card-dark {
+      border-radius: 1.25rem;
+      background-color: rgba(18, 18, 22, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .portfolio-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+    .portfolio-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(255, 107, 53, 0.18);
+      border-color: rgba(255, 107, 53, 0.5);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #ff6b35, #ff8c5a, #f7c59f);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient-shift 4s ease infinite;
+    }
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+  </style>
+</head>
+<body class="selection:bg-[#ff6b35] selection:text-white">
+
+  <!-- ==================== INTRO EXPERIENCE LOADER ==================== -->
+  <div id="intro-loader" class="fixed inset-0 z-[10000] bg-[#0c0c0c] flex items-center justify-center transition-all duration-700">
+    <div class="text-center">
+      <div class="relative w-24 h-24 mx-auto mb-6">
+        <div class="absolute inset-0 border-4 border-[#ff6b35]/20 rounded-full animate-ping"></div>
+        <div class="absolute inset-2 border-4 border-[#ff6b35]/40 rounded-full animate-pulse"></div>
+        <div class="absolute inset-4 border-4 border-[#ff6b35]/60 rounded-full animate-spin" style="animation-duration: 2s;"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-3xl font-black font-heading text-[#ff6b35] tracking-wider">KS</span>
+        </div>
+      </div>
+      <p class="text-white font-semibold text-sm tracking-widest uppercase animate-pulse">
+        Loading Experience...
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== CUSTOM CURSOR ==================== -->
+  <div id="cursor-outer" class="fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 hidden md:block mix-blend-difference w-8 h-8 rounded-full border-2 border-[#ff6b35] transition-all duration-150"></div>
+  <div id="cursor-inner" class="fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 hidden md:block w-2 h-2 bg-[#ff6b35] rounded-full transition-transform duration-100"></div>
+
+  <!-- ==================== PARTICLE TRAIL CANVAS ==================== -->
+  <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-[9998] hidden md:block"></canvas>
+
+  <!-- ==================== SCROLL PROGRESS INDICATOR ==================== -->
+  <div class="fixed top-0 left-0 right-0 h-1 z-[100] bg-transparent">
+    <div id="scroll-bar" class="h-full bg-gradient-to-r from-[#ff6b35] via-[#ff8c5a] to-[#f7c59f] w-0 transition-all duration-100 ease-out"></div>
+  </div>
+
+  <!-- Floating Scroll To Top & Percentage Circle -->
+  <div id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 transition-all duration-300 cursor-pointer group opacity-0 translate-y-4 pointer-events-none hoverable" title="Scroll to top">
+    <div class="relative w-14 h-14 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-white/50 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+      <svg class="w-full h-full -rotate-90 p-1" viewBox="0 0 56 56">
+        <circle cx="28" cy="28" r="24" fill="none" stroke="#e5e5e5" stroke-width="3.5" />
+        <circle id="scroll-circle" cx="28" cy="28" r="24" fill="none" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="150.796" stroke-dashoffset="150.796" class="transition-all duration-100" />
+      </svg>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span id="scroll-percent" class="text-xs font-bold text-[#ff6b35] group-hover:hidden">0%</span>
+        <span class="text-xs font-bold text-[#ff6b35] hidden group-hover:block text-[14px]">↑</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3.5 group hoverable">
+        <div class="relative w-11 h-11 rounded-xl bg-[#0c0c0c] flex items-center justify-center border-2 border-[#ff6b35]/60 shadow-md group-hover:border-[#ff6b35] transition-all group-hover:scale-105">
+          <span class="font-heading font-black text-xl text-[#ff6b35] tracking-wider">KS</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-lg text-gray-900 group-hover:text-[#ff6b35] transition-colors leading-tight">Khawaja Saim</span>
+          <span class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Flutter Dev</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden lg:flex items-center gap-1 bg-white/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-gray-200/60 shadow-sm">
+        <a href="#home" class="px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:text-[#ff6b35] hover:bg-gray-100/60 transition-all hoverable">Home</a>
+        <a href="#about" class="px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:text-[#ff6b35] hover:bg-gray-100/60 transition-all hoverable">About</a>
+        <a href="#skills" class="px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:text-[#ff6b35] hover:bg-gray-100/60 transition-all hoverable">Skills</a>
+        <a href="#experience" class="px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:text-[#ff6b35] hover:bg-gray-100/60 transition-all hoverable">Experience</a>
+        <a href="#projects" class="px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:text-[#ff6b35] hover:bg-gray-100/60 transition-all hoverable">Projects</a>
+        <a href="#services" class="px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:text-[#ff6b35] hover:bg-gray-100/60 transition-all hoverable">Services</a>
+        <a href="#contact" class="px-4 py-2 rounded-full text-sm font-semibold text-gray-700 hover:text-[#ff6b35] hover:bg-gray-100/60 transition-all hoverable">Contact</a>
+      </nav>
+
+      <!-- Right Action -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="https://wa.me/923245352293" target="_blank" class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold shadow-md shadow-emerald-500/25 transition-all hover:scale-105 hoverable">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>WhatsApp</span>
+        </a>
+        <a href="#contact" class="btn-primary hoverable py-2.5 px-6 text-sm flex items-center gap-1.5">
+          <span>Let's Talk</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="home" class="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center">
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-[#ff6b35]/15 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-0 w-[450px] h-[450px] bg-[#f7c59f]/20 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <!-- Hero Details -->
+        <div class="lg:col-span-7 space-y-7">
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 border border-gray-200/80 shadow-sm backdrop-blur-md">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-bold text-gray-700 uppercase tracking-wider">
+              Available for New Projects & Teams
+            </span>
+          </div>
+
+          <div class="space-y-3">
+            <h2 class="text-xl md:text-2xl font-semibold text-gray-600">
+              Hello, I'm <span class="text-gray-900 font-bold">Khawaja Saim</span>
+            </h2>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight text-[#0c0c0c] leading-[1.15]">
+              Crafting Scalable <br>
+              <span id="typewriter" class="gradient-text font-black"></span>
+            </h1>
+          </div>
+
+          <p class="text-lg text-gray-600 max-w-xl leading-relaxed">
+            Turning ambitious ideas into smooth, production-ready mobile applications. Specialized in clean architecture, performance optimization, and AI integrations. Building beautifully responsive, native-grade experiences for Android, iOS, and Web.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#projects" class="btn-primary hoverable gap-2 flex items-center font-bold">
+              <span>View My Apps</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="https://drive.google.com/file/d/16DD7RRLPKuGQbEAtzoCWvFDSQCM0cD8o/view?usp=sharing" target="_blank" class="btn-secondary hoverable gap-2 flex items-center font-bold">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download CV</span>
+            </a>
+            <a href="https://wa.me/923245352293" target="_blank" class="flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 hoverable">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span>WhatsApp Me</span>
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-6 pt-4 text-xs font-semibold text-gray-500 uppercase tracking-wider border-t border-gray-200/60">
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-[#ff6b35]"></i>
+              <span>Production Clean Architecture</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-[#ff6b35]"></i>
+              <span>Pixel-Perfect 60+ FPS</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-[#ff6b35]"></i>
+              <span>AI & Cloud Integrated</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Photo Card -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          <div class="relative w-full max-w-md">
+            <div class="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-[#ff6b35]/30 to-[#f7c59f]/20 blur-2xl -z-10"></div>
+            <div class="relative rounded-[2rem] overflow-hidden bg-gradient-to-b from-white to-gray-50 p-4 border border-white shadow-2xl">
+              <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/5] bg-gray-900 group">
+                <img src="./public/assets/images/my_image.png" alt="Khawaja Saim" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ff6b35] text-white shadow-md mb-2">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Mobile Architect
+                  </span>
+                  <h3 class="text-2xl font-bold font-heading">Khawaja Saim</h3>
+                  <p class="text-sm text-gray-200">Senior Flutter Developer (3+ Years)</p>
+                </div>
+              </div>
+
+              <!-- Floating Badges -->
+              <div class="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-3.5 animate-float">
+                <div class="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-xl text-[#ff6b35]">
+                  🚀
+                </div>
+                <div>
+                  <div class="text-lg font-black text-gray-900 leading-none">5+ Live</div>
+                  <div class="text-xs font-medium text-gray-500 mt-1">Play & App Store Apps</div>
+                </div>
+              </div>
+
+              <div class="absolute -top-6 -right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-gray-100 flex items-center gap-3 animate-float" style="animation-delay: 1.5s;">
+                <div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-black text-sm">
+                  ⚡ 40%
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-900 leading-none">App Speedup</div>
+                  <div class="text-[11px] font-medium text-gray-500 mt-1">Load Time Optimized</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="mt-20 pt-10 border-t border-gray-200/80">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="glass-card p-6 text-center group hoverable">
+            <div class="text-3xl md:text-5xl font-black font-heading text-[#ff6b35] counter" data-target="3">3+</div>
+            <div class="text-sm font-bold text-gray-700 mt-2 uppercase tracking-wide">Years Experience</div>
+          </div>
+          <div class="glass-card p-6 text-center group hoverable">
+            <div class="text-3xl md:text-5xl font-black font-heading text-[#ff6b35] counter" data-target="30">30+</div>
+            <div class="text-sm font-bold text-gray-700 mt-2 uppercase tracking-wide">Apps Built</div>
+          </div>
+          <div class="glass-card p-6 text-center group hoverable">
+            <div class="text-3xl md:text-5xl font-black font-heading text-[#ff6b35] counter" data-target="2">2</div>
+            <div class="text-sm font-bold text-gray-700 mt-2 uppercase tracking-wide">Tech Companies</div>
+          </div>
+          <div class="glass-card p-6 text-center group hoverable">
+            <div class="text-3xl md:text-5xl font-black font-heading text-[#ff6b35] counter" data-target="5">5+</div>
+            <div class="text-sm font-bold text-gray-700 mt-2 uppercase tracking-wide">Live on Stores</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT SECTION ==================== -->
+  <section id="about" class="py-24 relative overflow-hidden bg-white/60">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="section-label"><span>✦ About Me</span></div>
+        <h2 class="text-3xl md:text-5xl font-black font-heading text-gray-900 leading-tight">
+          Crafting Exceptional Digital Experiences Through <span class="gradient-text">Clean Code</span>
+        </h2>
+        <p class="text-gray-600 text-lg">
+          A passionate Senior Flutter Developer driven by precision, high performance, and human-centered design.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5">
+          <div class="glass-card-dark p-8 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-[#ff6b35]/20 rounded-full blur-3xl pointer-events-none"></div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#ff8c5a] mb-2 inline-block">Professional Journey</span>
+            <h3 class="text-2xl font-bold font-heading mb-4">3+ Years of Continuous Mobile Innovation</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6">
+              From mastering Flutter fundamentals to architecting full-scale enterprise mobile apps, my mission is to build apps that users love and businesses rely upon.
+            </p>
+            <div class="space-y-3.5 pt-4 border-t border-white/10 text-sm">
+              <div class="flex items-center gap-3">
+                <i data-lucide="award" class="w-5 h-5 text-[#ff6b35]"></i>
+                <span class="text-gray-200">Senior Flutter Developer @ Nextwys Software</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="rocket" class="w-5 h-5 text-[#ff6b35]"></i>
+                <span class="text-gray-200">30+ Apps Engineered Across Multiple Sectors</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="users" class="w-5 h-5 text-[#ff6b35]"></i>
+                <span class="text-gray-200">Team Leadership & Engineering Mentorship</span>
+              </div>
+            </div>
+            <div class="mt-8">
+              <a href="https://drive.google.com/file/d/16DD7RRLPKuGQbEAtzoCWvFDSQCM0cD8o/view?usp=sharing" target="_blank" class="btn-primary w-full text-center hoverable gap-2 py-3 flex items-center justify-center">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Download Curriculum Vitae</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          <div class="space-y-4 text-gray-700 leading-relaxed text-base">
+            <p>
+              I specialize in <strong>Flutter & Dart cross-platform mobile development</strong>, turning complex product visions into high-performance, maintainable mobile applications for <strong>iOS, Android, and Web</strong>.
+            </p>
+            <p>
+              My experience spans working with international clients, startups, and agile software development teams. As a <strong>Senior Flutter Developer</strong>, I take pride in establishing rock-solid architectural foundations using <strong>Clean Architecture</strong>, <strong>GetX</strong>, <strong>Riverpod</strong>, and <strong>Provider</strong>, while optimizing rendering speed and reducing network latency.
+            </p>
+            <p>
+              Beyond standard development, I actively incorporate modern AI capabilities—integrating <strong>OpenAI APIs</strong> and <strong>Hugging Face models</strong>—to deliver smart, next-generation features in applications like <em>Salomo (AI Dream Companion)</em> and <em>Cognize</em>.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 pt-4">
+            <div class="glass-card p-5 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#ff6b35] flex-shrink-0">
+                <i data-lucide="target" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">Clean Architecture</h4>
+                <p class="text-xs text-gray-500 mt-1">Modular, testable, and enterprise-scalable codebases.</p>
+              </div>
+            </div>
+            <div class="glass-card p-5 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#ff6b35] flex-shrink-0">
+                <i data-lucide="rocket" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 text-sm">40% Speed Optimization</h4>
+                <p class="text-xs text-gray-500 mt-1">Optimized widget trees, memory leak elimination, and snappy startup.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS SECTION ==================== -->
+  <section id="skills" class="py-24 relative overflow-hidden bg-[#f5f5f5]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="section-label"><span>✦ Technical Mastery</span></div>
+        <h2 class="text-3xl md:text-5xl font-black font-heading text-gray-900 leading-tight">
+          Specialized in Modern <span className="gradient-text">Flutter Engineering</span>
+        </h2>
+        <p class="text-gray-600 text-lg">
+          A comprehensive overview of my core technical stack, libraries, cloud backends, and deployment proficiencies.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Category 1 -->
+        <div class="glass-card p-8 hoverable">
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-[#ff6b35]/10 text-[#ff6b35] flex items-center justify-center font-bold">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-gray-900">Core Framework & Languages</h3>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-gray-800 mb-1"><span>Flutter</span><span class="text-[#ff6b35]">95%</span></div>
+              <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c5a] rounded-full" style="width: 95%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-gray-800 mb-1"><span>Dart</span><span class="text-[#ff6b35]">92%</span></div>
+              <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c5a] rounded-full" style="width: 92%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-gray-800 mb-1"><span>Clean Architecture</span><span class="text-[#ff6b35]">90%</span></div>
+              <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c5a] rounded-full" style="width: 90%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="glass-card p-8 hoverable">
+          <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
+            <div class="w-10 h-10 rounded-xl bg-[#ff6b35]/10 text-[#ff6b35] flex items-center justify-center font-bold">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-gray-900">State Management & Architecture</h3>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-gray-800 mb-1"><span>GetX</span><span class="text-[#ff6b35]">95%</span></div>
+              <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c5a] rounded-full" style="width: 95%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-gray-800 mb-1"><span>Provider</span><span class="text-[#ff6b35]">88%</span></div>
+              <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c5a] rounded-full" style="width: 88%;"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold text-gray-800 mb-1"><span>Riverpod & BLoC</span><span class="text-[#ff6b35]">85%</span></div>
+              <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c5a] rounded-full" style="width: 85%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIENCE SECTION ==================== -->
+  <section id="experience" class="py-24 relative overflow-hidden bg-white/70">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="section-label"><span>✦ Career Milestones</span></div>
+        <h2 class="text-3xl md:text-5xl font-black font-heading text-gray-900 leading-tight">
+          Work Experience & <span class="gradient-text">Leadership</span>
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Track record of shipping production-grade mobile applications and mentoring engineering teams.
+        </p>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto space-y-12">
+        <!-- Exp 1 -->
+        <div class="glass-card p-8 md:p-10 hoverable">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ff6b35]/15 text-[#ff6b35] border border-[#ff6b35]/30 mb-2">
+            2025 — Present
+          </span>
+          <h3 class="text-2xl font-bold font-heading text-gray-900">Senior Flutter Developer</h3>
+          <div class="text-base font-semibold text-gray-700 mt-1 mb-4 flex items-center gap-2">
+            <i data-lucide="building-2" class="w-4 h-4 text-[#ff6b35]"></i>
+            <span>Nextwys Software Solution</span>
+          </div>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Leading mobile development projects by building scalable cross-platform Flutter applications and collaborating with backend teams for seamless API integration across various global industries.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-800 pt-4 border-t border-gray-100">
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#ff6b35]"></i><span>Built 8+ production apps</span></div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#ff6b35]"></i><span>Led a team of 3 junior developers</span></div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#ff6b35]"></i><span>Reduced load time by 40%</span></div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#ff6b35]"></i><span>Architected scalable GetX codebases</span></div>
+          </div>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="glass-card p-8 md:p-10 hoverable">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#ff6b35]/15 text-[#ff6b35] border border-[#ff6b35]/30 mb-2">
+            2023 — 2024
+          </span>
+          <h3 class="text-2xl font-bold font-heading text-gray-900">Flutter Developer</h3>
+          <div class="text-base font-semibold text-gray-700 mt-1 mb-4 flex items-center gap-2">
+            <i data-lucide="building-2" class="w-4 h-4 text-[#ff6b35]"></i>
+            <span>Byte Sources Solution</span>
+          </div>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Learned Flutter development from fundamentals and quickly progressed to building responsive, scalable mobile applications while delivering high-value client projects professionally.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-800 pt-4 border-t border-gray-100">
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#ff6b35]"></i><span>Delivered 15+ client projects on time</span></div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#ff6b35]"></i><span>Implemented complex custom animations</span></div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#ff6b35]"></i><span>Integrated REST APIs & Firebase backend</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS SECTION ==================== -->
+  <section id="projects" class="py-24 relative overflow-hidden bg-[#f5f5f5]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-4">
+        <div class="section-label"><span>✦ Featured Creations</span></div>
+        <h2 class="text-3xl md:text-5xl font-black font-heading text-gray-900 leading-tight">
+          Published Apps & <span class="gradient-text">Showcase</span>
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Real-world Flutter applications published on Google Play and Apple App Store, actively serving real users.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="portfolio-card p-7 hoverable flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <img src="./public/assets/images/mja_app_icon.png" alt="MJA" class="w-16 h-16 rounded-2xl p-1 bg-white shadow-md border border-gray-100 object-contain">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-orange-50 text-[#ff6b35] border border-orange-200">Play Store</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-gray-900 mb-2">MJA: Meditation & Achtsamkeit</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              A soothing mindfulness, relaxation, and meditation app designed to help users reduce stress and improve sleep quality.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Flutter</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Firebase</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">In-App Purchase</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.heikokusters.mindfulness_journey_app&pcampaignid=web_share" target="_blank" class="btn-primary py-2.5 px-4 text-xs flex items-center justify-center gap-1.5 font-bold hoverable">
+            <span>Open Play Store</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-card p-7 hoverable flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <img src="./public/assets/images/cognize_app_icon.png" alt="Cognize" class="w-16 h-16 rounded-2xl p-1 bg-white shadow-md border border-gray-100 object-contain">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-orange-50 text-[#ff6b35] border border-orange-200">Play Store</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-gray-900 mb-2">Cognize: Productivity Planner</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              Daily productivity app with events, notes, reminders, alarms, stopwatch tasks, and password-protected private vaults.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Flutter</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Firebase</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">GetX</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.cognizeapp.app&pcampaignid=web_share" target="_blank" class="btn-primary py-2.5 px-4 text-xs flex items-center justify-center gap-1.5 font-bold hoverable">
+            <span>Open Play Store</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="portfolio-card p-7 hoverable flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <img src="./public/assets/images/salomo_app_icon.png" alt="Salomo" class="w-16 h-16 rounded-2xl p-1 bg-white shadow-md border border-gray-100 object-contain">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-orange-50 text-[#ff6b35] border border-orange-200">Play Store</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-gray-900 mb-2">Salomo: AI Dream Companion</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              AI-powered dream companion that helps users record, explore, and analyze dream symbols, sentiment, and emotional states.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Flutter</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Supabase</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">AI / LLM</span>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.dreamsageai.app&pcampaignid=web_share" target="_blank" class="btn-primary py-2.5 px-4 text-xs flex items-center justify-center gap-1.5 font-bold hoverable">
+            <span>Open Play Store</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-card p-7 hoverable flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <img src="./public/assets/images/earnovate_icon.png" alt="Earnovate" class="w-16 h-16 rounded-2xl p-1 bg-white shadow-md border border-gray-100 object-contain">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-orange-50 text-[#ff6b35] border border-orange-200">App Store</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-gray-900 mb-2">Earnovate™: Digital Success</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              All-in-one digital success toolkit with AI guides, templates, and courses to help users build and monetize digital products.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Flutter</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Firebase</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">iOS StoreKit</span>
+            </div>
+          </div>
+          <a href="https://apps.apple.com/us/app/earnovate/id6755743036" target="_blank" class="btn-primary py-2.5 px-4 text-xs flex items-center justify-center gap-1.5 font-bold hoverable">
+            <span>Open App Store</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="portfolio-card p-7 hoverable flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <img src="./public/assets/images/social_app_icon.png" alt="Uni Social" class="w-16 h-16 rounded-2xl p-1 bg-white shadow-md border border-gray-100 object-contain">
+              <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-orange-50 text-[#ff6b35] border border-orange-200">Video Demo</span>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-gray-900 mb-2">Uni-Social Mobile App</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              Modern social networking app featuring real-time feed updates, rich story sharing, multimedia uploads, and dynamic comments.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Flutter</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">GetX</span>
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-100 text-gray-700">Firebase</span>
+            </div>
+          </div>
+          <a href="https://drive.google.com/file/d/1XsYQB9YdOgCLDBmcwTopTJPOFyD0EWPV/view?usp=sharing" target="_blank" class="btn-primary py-2.5 px-4 text-xs flex items-center justify-center gap-1.5 font-bold hoverable">
+            <span>Watch Demo Video</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section id="contact" class="py-24 relative overflow-hidden bg-white/80">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="section-label"><span>✦ Let's Connect</span></div>
+        <h2 class="text-3xl md:text-5xl font-black font-heading text-gray-900 leading-tight">
+          Ready to Build Your <span class="gradient-text">Next Big App?</span>
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Have a project in mind or looking for a Senior Flutter Developer to join your team? Let's connect directly!
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5 space-y-6">
+          <a href="https://wa.me/923245352293" target="_blank" class="block p-7 rounded-3xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white shadow-xl shadow-emerald-500/20 hover:scale-[1.02] transition-all hoverable">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                <i data-lucide="message-circle" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-100">Fastest Response</span>
+                <h3 class="text-2xl font-bold font-heading">Chat on WhatsApp</h3>
+                <p class="text-xs text-emerald-100 mt-1">+92 324 5352293 • Available Worldwide</p>
+              </div>
+            </div>
+          </a>
+
+          <div class="glass-card p-6 space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#ff6b35]/10 text-[#ff6b35] flex items-center justify-center">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Direct Email</span>
+                <div class="text-base font-bold text-gray-900">khawajasaim23@gmail.com</div>
+              </div>
+            </div>
+            <div class="h-px bg-gray-100"></div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#ff6b35]/10 text-[#ff6b35] flex items-center justify-center">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Phone / Call</span>
+                <div class="text-base font-bold text-gray-900">+92 324 5352293</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="glass-card p-8 md:p-10">
+            <h3 class="text-2xl font-bold font-heading text-gray-900 mb-2">Send a Message</h3>
+            <p class="text-sm text-gray-500 mb-6">Fill in the details below to open WhatsApp with your project message instantly.</p>
+            <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Name *</label>
+                  <input type="text" id="form-name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:border-[#ff6b35]">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Email *</label>
+                  <input type="email" id="form-email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:border-[#ff6b35]">
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Project Message *</label>
+                <textarea id="form-message" required rows="4" placeholder="Tell me about your app goals..." class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:border-[#ff6b35] resize-none"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full hoverable py-4 text-base font-bold flex items-center justify-center gap-2">
+                <span>Send via WhatsApp Instant</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#0c0c0c] text-white pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-black border-2 border-[#ff6b35] flex items-center justify-center font-heading font-black text-[#ff6b35] text-lg">
+          KS
+        </div>
+        <span class="font-heading font-bold text-xl text-white">Khawaja Saim</span>
+      </div>
+      <p class="text-xs text-gray-500">© 2026 Khawaja Saim. All rights reserved. Built with passion & VIP animations.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ANIMATIONS ==================== -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 1. Intro Loader Fade
+    setTimeout(() => {
+      const loader = document.getElementById('intro-loader');
+      loader.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => loader.style.display = 'none', 700);
+    }, 1800);
+
+    // 2. Custom Cursor with Lerp
+    const outer = document.getElementById('cursor-outer');
+    const inner = document.getElementById('cursor-inner');
+    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+    let currentX = mouseX, currentY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      inner.style.left = `${mouseX}px`;
+      inner.style.top = `${mouseY}px`;
+    }, { passive: true });
+
+    window.addEventListener('mousedown', () => {
+      outer.style.transform = 'translate(-50%, -50%) scale(0.75)';
+      inner.style.transform = 'translate(-50%, -50%) scale(1.5)';
+    });
+    window.addEventListener('mouseup', () => {
+      outer.style.transform = 'translate(-50%, -50%) scale(1)';
+      inner.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.hoverable')) {
+        outer.classList.remove('w-8', 'h-8');
+        outer.classList.add('w-16', 'h-16', 'bg-[#ff6b35]/20');
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.hoverable')) {
+        outer.classList.add('w-8', 'h-8');
+        outer.classList.remove('w-16', 'h-16', 'bg-[#ff6b35]/20');
+      }
+    }, { passive: true });
+
+    function lerpCursor() {
+      currentX += (mouseX - currentX) * 0.15;
+      currentY += (mouseY - currentY) * 0.15;
+      outer.style.left = `${currentX}px`;
+      outer.style.top = `${currentY}px`;
+      requestAnimationFrame(lerpCursor);
+    }
+    requestAnimationFrame(lerpCursor);
+
+    // 3. Particle Trail Canvas
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const colors = ['#ff6b35', '#ff8c5a', '#f7c59f', '#ffa07a'];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    window.addEventListener('mousemove', (e) => {
+      for (let i = 0; i < 3; i++) {
+        particles.push({
+          x: e.clientX + (Math.random() - 0.5) * 8,
+          y: e.clientY + (Math.random() - 0.5) * 8,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+          life: 1.0,
+          size: Math.random() * 3.5 + 1.5,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }, { passive: true });
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles = particles.filter(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= 0.025;
+        p.size *= 0.97;
+        if (p.life <= 0 || p.size <= 0.2) return false;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        return true;
+      });
+      if (particles.length > 100) particles = particles.slice(-100);
+      requestAnimationFrame(renderParticles);
+    }
+    renderParticles();
+
+    // 4. Scroll Progress & Circle
+    const scrollBar = document.getElementById('scroll-bar');
+    const scrollCircle = document.getElementById('scroll-circle');
+    const scrollPercent = document.getElementById('scroll-percent');
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+    const circumference = 2 * Math.PI * 24;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = total > 0 ? (scrollY / total) * 100 : 0;
+      scrollBar.style.width = `${progress}%`;
+
+      const offset = circumference - (progress / 100) * circumference;
+      scrollCircle.style.strokeDashoffset = offset;
+      scrollPercent.innerText = `${Math.round(progress)}%`;
+
+      if (scrollY > 150) {
+        scrollTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+        scrollTopBtn.classList.add('opacity-100', 'translate-y-0');
+      } else {
+        scrollTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        scrollTopBtn.classList.remove('opacity-100', 'translate-y-0');
+      }
+    }, { passive: true });
+
+    // 5. TypeWriter Effect
+    const words = [
+      'Senior Flutter Developer',
+      'Mobile App Architect',
+      'iOS & Android Specialist',
+      'AI & Mobile Apps Engineer'
+    ];
+    let wordIdx = 0, charIdx = 0, isDeleting = false;
+    const typeTarget = document.getElementById('typewriter');
+
+    function typeLoop() {
+      const current = words[wordIdx];
+      if (!isDeleting) {
+        typeTarget.innerText = current.substring(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          isDeleting = true;
+          setTimeout(typeLoop, 2000);
+          return;
+        }
+      } else {
+        typeTarget.innerText = current.substring(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          isDeleting = false;
+          wordIdx = (wordIdx + 1) % words.length;
+        }
+      }
+      setTimeout(typeLoop, isDeleting ? 40 : 90);
+    }
+    typeLoop();
+
+    // 6. Form Submission Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const msg = document.getElementById('form-message').value;
+      const text = encodeURIComponent(`Hello Saim! I visited your portfolio.\nName: ${name}\nEmail: ${email}\nMessage: ${msg}`);
+      window.open(`https://wa.me/923245352293?text=${text}`, '_blank');
+    }
+  </script>
+</body>
+</html>
