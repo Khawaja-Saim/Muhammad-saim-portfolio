@@ -34,8 +34,8 @@ export interface SkillCategory {
 
 export const portfolioData = {
   personal: {
-    name: 'Khawaja Saim',
-    fullName: 'Muhammad Saim (Khawaja Saim)',
+    name: 'Muhammad Saim',
+    fullName: 'Muhammad Saim (Muhammad Saim)',
     initials: 'KS',
     title: 'Senior Flutter Developer',
     subtitle: 'Mobile App Architect & Cross-Platform Engineer',
@@ -111,9 +111,9 @@ export const portfolioData = {
       category: 'State Management & Architecture',
       skills: [
         { name: 'GetX', level: 95 },
-        { name: 'Provider', level: 88 },
-        { name: 'Riverpod', level: 85 },
-        { name: 'BLoC / Cubit', level: 80 },
+        { name: 'Provider', level: 90 },
+        { name: 'Riverpod', level: 75 },
+        { name: 'BLoC / Cubit', level: 40 },
       ]
     },
     {

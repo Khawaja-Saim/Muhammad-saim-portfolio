@@ -13,7 +13,7 @@ export const ProjectsSection: React.FC = () => {
   });
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-[#08090D]">
+    <section id="projects" className="py-24 relative overflow-hidden bg-transparent">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 -right-40 w-96 h-96 bg-[#00D9F5]/10 rounded-full blur-[150px] pointer-events-none" />
 

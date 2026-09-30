@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BackgroundAnimation } from './components/BackgroundAnimation';
 import { CustomCursor } from './components/CustomCursor';
 import { ParticleTrail } from './components/ParticleTrail';
 import { ScrollProgress } from './components/ScrollProgress';
@@ -23,7 +24,7 @@ export function App() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Snappy, ultra-fast intro loader (only 600ms so it feels instant & responsive)
+    // Snappy intro loader
     const timer = setTimeout(() => {
       setLoading(false);
     }, 600);
@@ -36,7 +37,7 @@ export function App() {
 
   return (
     <>
-      {/* Intro Experience Loader (Snappy dark futuristic glow) */}
+      {/* Intro Experience Loader */}
       <div
         className={`fixed inset-0 z-[10000] bg-[#08090D] flex items-center justify-center transition-all duration-300 ${
           loading ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
@@ -62,10 +63,13 @@ export function App() {
         </div>
       </div>
 
-      {/* Interactive Custom Cursor (Works on Desktop & Mobile/Touch) */}
+      {/* Full-Page Interactive Constellation Background Animation */}
+      <BackgroundAnimation />
+
+      {/* Interactive Custom Cursor */}
       <CustomCursor />
 
-      {/* Canvas Particle Trail (Snappy 120 FPS performance) */}
+      {/* Canvas Particle Trail */}
       <ParticleTrail />
 
       {/* Dual Scroll Progress Indicator */}
@@ -73,7 +77,7 @@ export function App() {
 
       {/* Main Portfolio Content */}
       <div
-        className={`min-h-screen bg-[#08090D] text-slate-100 transition-opacity duration-300 ${
+        className={`relative z-10 min-h-screen bg-transparent text-slate-100 transition-opacity duration-300 ${
           loading ? 'opacity-0' : 'opacity-100'
         }`}
       >

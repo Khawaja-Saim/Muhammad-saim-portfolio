@@ -1,4 +1,4 @@
-# Khawaja Saim — VIP Flutter Developer Portfolio
+# Muhammad Saim — VIP Flutter Developer Portfolio
 
 An ultra-modern, high-performance portfolio website built with **React + Vite + Tailwind CSS**, featuring the exact VIP animations inspired by the award-winning developer portfolio.
 

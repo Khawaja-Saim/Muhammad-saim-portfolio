@@ -21,7 +21,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#08090D]">
+    <section id="contact" className="py-24 relative overflow-hidden bg-transparent">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#00F5A0]/10 rounded-full blur-[150px] pointer-events-none" />
 
