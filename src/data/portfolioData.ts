@@ -1,3 +1,11 @@
+import myAvatar from '../assets/my_image.png';
+import mjaIcon from '../assets/mja_app_icon.png';
+import cognizeIcon from '../assets/cognize_app_icon.png';
+import salomoIcon from '../assets/salomo_app_icon.png';
+import earnovateIcon from '../assets/earnovate_icon.png';
+import copcupIcon from '../assets/copcup_icon.png';
+import socialIcon from '../assets/social_app_icon.png';
+
 export interface Project {
   id: string;
   title: string;
@@ -35,12 +43,12 @@ export interface SkillCategory {
 export const portfolioData = {
   personal: {
     name: 'Muhammad Saim',
-    fullName: 'Muhammad Saim (Muhammad Saim)',
+    fullName: 'Muhammad Saim',
     initials: 'MS',
     title: 'Senior Flutter Developer',
     subtitle: 'Mobile App Architect & Cross-Platform Engineer',
     bio: 'Turning ambitious ideas into smooth, production-ready mobile applications. Specialized in clean architecture, performance optimization, and AI integrations. Building beautifully responsive, native-grade experiences for Android, iOS, and Web.',
-    avatar: '/assets/images/my_image.png',
+    avatar: myAvatar,
     email: 'khawajasaim23@gmail.com',
     phone: '+92 324 5352293',
     whatsapp: 'https://wa.me/923245352293',
@@ -174,7 +182,7 @@ export const portfolioData = {
       title: 'MJA: Meditation & Achtsamkeit',
       category: 'store',
       description: 'A soothing mindfulness, relaxation, and meditation app designed to help users reduce stress, overcome anxiety, improve sleep quality, and achieve mental wellness through calming soundscapes.',
-      image: '/assets/images/mja_app_icon.png',
+      image: mjaIcon,
       tags: ['Flutter', 'Firebase', 'In-App Purchase', 'GetX', 'Audio Engine'],
       storeLabel: 'Play Store',
       storeUrl: 'https://play.google.com/store/apps/details?id=com.heikokusters.mindfulness_journey_app&pcampaignid=web_share',
@@ -185,7 +193,7 @@ export const portfolioData = {
       title: 'Cognize: Productivity Planner',
       category: 'store',
       description: 'An all-in-one daily life organizer and task manager featuring events, notes, reminders, alarms, stopwatch tasks, private media vaults, and password-protected encrypted folders.',
-      image: '/assets/images/cognize_app_icon.png',
+      image: cognizeIcon,
       tags: ['Flutter', 'Firebase', 'GetX', 'Push Notifications', 'Local Vault'],
       storeLabel: 'Play Store',
       storeUrl: 'https://play.google.com/store/apps/details?id=com.cognizeapp.app&pcampaignid=web_share',
@@ -196,7 +204,7 @@ export const portfolioData = {
       title: 'Salomo: AI Dream Companion',
       category: 'ai',
       description: 'An AI-powered subconscious reflection companion that helps users record, explore, and analyze dream symbols, sentiment patterns, and emotions to unlock personal psychological insights.',
-      image: '/assets/images/salomo_app_icon.png',
+      image: salomoIcon,
       tags: ['Flutter', 'Supabase', 'Provider', 'AI / LLM', 'Analytics'],
       storeLabel: 'Play Store',
       storeUrl: 'https://play.google.com/store/apps/details?id=com.dreamsageai.app&pcampaignid=web_share',
@@ -207,18 +215,29 @@ export const portfolioData = {
       title: 'Earnovate™: Digital Success Toolkit',
       category: 'store',
       description: 'A comprehensive digital entrepreneurship toolkit providing AI guides, branding resources, templates, planners, and interactive courses to help creators build digital products and scale online income.',
-      image: '/assets/images/earnovate_icon.png',
+      image: earnovateIcon,
       tags: ['Flutter', 'Firebase', 'In-App Purchase', 'GetX', 'iOS StoreKit'],
       storeLabel: 'Apple App Store',
       storeUrl: 'https://apps.apple.com/us/app/earnovate/id6755743036',
       featured: true
     },
     {
+      id: 'copcup',
+      title: 'CopCup: Food Delivery App',
+      category: 'store',
+      description: 'A modern food delivery mobile app enabling users to discover nearby restaurants based on real-time location, browse dynamic menus, place instant orders, and track deliveries smoothly.',
+      image: copcupIcon,
+      tags: ['Flutter', 'Google Maps', 'REST APIs', 'GetX', 'Geolocation'],
+      storeLabel: 'Mobile App',
+      storeUrl: 'https://github.com/Khawaja-Saim',
+      featured: false
+    },
+    {
       id: 'uni-social',
       title: 'Uni-Social App',
       category: 'social',
       description: 'Modern social networking mobile app featuring real-time feed updates, rich story sharing, multimedia uploads (photos/videos), interactive likes, dynamic comments, and instant notifications.',
-      image: '/assets/images/social_app_icon.png',
+      image: socialIcon,
       tags: ['Flutter', 'GetX', 'Firebase Auth', 'Firestore', 'Media Streaming'],
       storeLabel: 'Watch Video Demo',
       storeUrl: 'https://drive.google.com/file/d/1XsYQB9YdOgCLDBmcwTopTJPOFyD0EWPV/view?usp=sharing',
